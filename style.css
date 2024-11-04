@@ -1,0 +1,149 @@
+
+
+body {
+    background-color: seashell;
+}
+
+#calender {
+    background-color: white;
+    border-style: solid;
+    border-width: 5px;
+    display: inline-block;
+    height: 250px;
+    position: fixed;
+    top: 30%;
+    left: 7%;
+    scale: 1.5;
+    border-radius: 5%;
+    
+
+    
+    
+}
+
+button {
+    cursor: pointer;
+}
+
+#table {
+    margin-left: 30%;
+}
+
+#monthTitle {
+    width: 250px;
+}
+
+
+
+
+
+.arrow{
+    border-radius: 50%;
+}
+
+#calender ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.weeks{
+    font-weight: bold;
+    
+
+
+}
+
+.weeks th{
+    width: 50px;
+}
+
+
+
+.days td {
+    width: 50px;
+    text-align: center;
+}
+
+.realNum{
+
+    background-color: thistle;
+    border-radius: 50px;
+
+}
+
+
+.realNum:hover {
+    background-color: aliceblue;
+}
+
+.realNum:active {
+    background-color: aqua;
+}
+
+
+
+.today{
+    border-color: green;
+    border-width: 5px;
+}
+
+#popupEvent{
+    display: block;
+    position: fixed;
+    right: 10px;
+    bottom: 220px;
+    background-color: white;
+    border: 5px solid;
+    width: auto;
+    height: auto;
+    text-align: center;
+    border-radius: 5%;
+
+   
+}
+
+
+#popupEvent label {
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
+
+
+#eventDisplay{
+    display: block;
+    border-style: solid;
+    border-width: 5px;
+   position: fixed;
+   top: 150px;
+   left: 620px;
+   margin-top: 6px;
+   height: 380px;
+   width: 470px;
+   overflow-x: hidden;
+   overflow-y: auto;
+   text-align: center;
+   background-color: white;
+   border-radius: 5%;
+
+}
+
+.event{
+    
+    border: 1px solid;
+    
+}
+
+
+
+
+
+
+
+
+
+
+

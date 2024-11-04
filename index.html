@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Calender</title>
+    <meta charset="UTF-8">
+    
+</head>
+
+
+
+<body>
+
+<div id="calender">
+
+    <table id="table"> 
+        <tr>
+            <td id = "monthTitle">
+            <h2 class="currentDate"></h2>
+            </td>
+
+            <td>
+                <button onclick="prev()" class="arrow">&larr;</button> 
+            </td>
+
+            <td> 
+                <button onclick="next()" class="arrow">&rarr;</button>
+            </td>
+        </tr>
+      
+    </table>
+
+
+    <table class="weeks">
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+    </table>
+
+    <table class="days" id="days">
+        
+    </table>
+ 
+</div> <!-- end tag for calender-->
+
+<div id="popupEvent">
+    <form name="addEvent" id="addEvent" onsubmit="test(); return false;">
+
+        <h1>Add Event</h1>
+        <label id="dateDisplay"></label> <br> <br>
+        <label for="title">Title of Event:</label>
+        <input type="text" name="title" required> <br> <br>
+        
+        <label for="reason">Reason:</label> <br>
+        <textarea name="reason" rows="4" cols="50" required></textarea> <br>
+        <label for="time">Time:</label>
+        <input type="time" name="time" required> <br>
+        <br>
+        <button type="submit">Enter</button>
+        
+        
+        
+    </form>
+
+</div>
+
+
+<div id = "eventDisplay">
+    <h1 id="eventDisplayh1"></h1>
+
+  <div id="eventWrapper"></div>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
