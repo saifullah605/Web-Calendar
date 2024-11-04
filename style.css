@@ -4,20 +4,36 @@ body {
     background-color: seashell;
 }
 
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: center;
+}
+
 #calender {
     background-color: white;
     border-style: solid;
     border-width: 5px;
     display: inline-block;
     height: 250px;
-    position: fixed;
-    top: 30%;
-    left: 7%;
-    scale: 1.5;
+    height: 380px;
+    width: 470px;
+    
+   
+    
     border-radius: 5%;
     
 
     
+    
+}
+
+#calender table button {
+    font-size: 25px;
     
 }
 
@@ -31,6 +47,7 @@ button {
 
 #monthTitle {
     width: 250px;
+    font-size: 20px;
 }
 
 
@@ -41,14 +58,11 @@ button {
     border-radius: 50%;
 }
 
-#calender ul {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-}
+
 
 .weeks{
     font-weight: bold;
+    width: 100%
     
 
 
@@ -56,6 +70,12 @@ button {
 
 .weeks th{
     width: 50px;
+    font-size: 25px;
+}
+
+
+.days {
+    width: 100%;
 }
 
 
@@ -89,10 +109,9 @@ button {
 }
 
 #popupEvent{
-    display: block;
-    position: fixed;
-    right: 1%;
-    bottom: 30%;
+    display: inline-block;
+    
+   
     background-color: white;
     border: 5px solid;
     width: auto;
@@ -117,9 +136,8 @@ textarea {
     display: block;
     border-style: solid;
     border-width: 5px;
-   position: fixed;
-   top: 20%;
-   left: 40%;
+   
+  
    margin-top: 6px;
    height: 380px;
    width: 470px;
