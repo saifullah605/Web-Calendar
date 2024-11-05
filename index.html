@@ -51,16 +51,26 @@
  
 </div> <!-- end tag for calender-->
 
+
+
+
+<div id = "eventDisplay">
+    <h1 id="eventDisplayh1"></h1>
+
+  <div id="eventWrapper"></div>
+</div>
+
+
 <div id="popupEvent">
     <form name="addEvent" id="addEvent" onsubmit="test(); return false;">
 
         <h1>Add Event</h1>
         <label id="dateDisplay"></label> <br> <br>
         <label for="title">Title of Event:</label>
-        <input type="text" name="title" required> <br> <br>
+        <input type="text" name="title" placeholder="Enter Title..." required> <br> <br>
         
         <label for="reason">Reason:</label> <br>
-        <textarea name="reason" rows="4" cols="50" required></textarea> <br>
+        <textarea name="reason" rows="4" cols="50" placeholder="Enter reason or description..." required></textarea> <br>
         <label for="time">Time:</label>
         <input type="time" name="time" required> <br>
         <br>
@@ -73,15 +83,10 @@
 </div>
 
 
-<div id = "eventDisplay">
-    <h1 id="eventDisplayh1"></h1>
-
-  <div id="eventWrapper"></div>
-</div>
-
-
 
 </div>  
+
+
 
 
 

@@ -1,3 +1,4 @@
+//initialize some global variables
 var isBtnSelected = false;
 const dateDisplay = document.getElementById("dateDisplay");
 var btnSelected;
@@ -20,24 +21,24 @@ const currentDate = document.querySelector(".currentDate");
 
 
 
-
+//main function that will load the calender
 function renderCalender() {
     const dayTable = document.getElementById("days");
     dayTable.innerHTML = ""
     
-    
+    //get current date
     currentDate.innerText = Months[currMonth] + " " + currYear;
-    var lastDatepfMonth = new Date(currYear, currMonth+1, 0).getDate(); 
-    var firstdayofMonth = new Date(currYear, currMonth, 1).getDay();
+    var lastDatepfMonth = new Date(currYear, currMonth+1, 0).getDate(); //get the last day number of the month
+    var firstdayofMonth = new Date(currYear, currMonth, 1).getDay();  //get the first weekday of the month
     let dayTracker = firstdayofMonth;
 
-
-    let firstRow = dayTable.insertRow(0);
+    
+    let firstRow = dayTable.insertRow(0); //create first row of the calender
     let row = firstRow;
     rowTracker = 0;
-    let cell;
+    let cell; //create a cell to be entered in the calender
 
-
+    //iterate over blank weekdays, for example if month starts at Tue, Sun-Mon will be blank
     for(let i = 0; i < firstdayofMonth; i++){
         cell = firstRow.insertCell(i);
         
@@ -46,6 +47,8 @@ function renderCalender() {
         
 
     }
+
+    //enter real days of the month and input data into each button
 
     for(let i = 1; i<=lastDatepfMonth; i++){
         cell = row.insertCell(dayTracker);
@@ -91,6 +94,8 @@ function renderCalender() {
             if(isBtnSelected == false) {
                 btnSelected = btn;
                 dateDisplay.innerHTML = todayYear.toString()+ " " + Months[todayMonth] + " " + todayDay.toString();
+                btn.classList.add("clicked");
+
 
             }
             
@@ -105,8 +110,9 @@ function renderCalender() {
 
     
 
-
+    //add event listener to make each button function and able to set event to selected event
     for(let btn of butns){
+        
         btn.addEventListener("click", (e)=> {
 
             btnSelected = btn;
@@ -118,7 +124,18 @@ function renderCalender() {
            
            dateDisplay.innerHTML = dayData[0] + " " + Months[month]+ " " + dayData[2];
 
+           //render possible events for date selected
            renderEvents();
+
+           //if the button is clicked, keep the button highlighted untill another button is clicked
+
+           for(let btn2 of butns){
+            btn2.classList.remove("clicked"); 
+           }
+
+           btn.classList.add("clicked");
+           
+           
 
           
 
@@ -130,7 +147,7 @@ function renderCalender() {
 
    
 
-
+    //turn the date font red if it has events
     for(let btn of butns) {
 
         Object.keys(localStorage).forEach(function(key){
@@ -143,12 +160,26 @@ function renderCalender() {
 
     }
 
+    //if user has highlighted date, it will keep it highlighted even if user switch month
+
+    if(isBtnSelected == true){
+        for(let btn of butns){
+            if(btnSelected.value === btn.value){
+                btn.classList.add("clicked");
+            }
+        }
+
+
+    }
+
 
    
 
 
     
 }
+
+//function for rendering events by accessing localstorage
 
 function renderEvents() {
     var eventDisplay = document.getElementById("eventDisplayh1");
@@ -167,7 +198,7 @@ function renderEvents() {
         let keyData = key.split("-");
         
 
-
+        //creating a div element for each event which will contain all the information of event
         
         if(keyData[0] === btnSelected.value) {
             let eventData = localStorage.getItem(key).split("_");
@@ -210,10 +241,13 @@ function renderEvents() {
 }
 
 
+//funciton for creating event
+
+
 function test(){
     var counter =1;
     Object.keys(localStorage).forEach(function(key){
-    counter++;
+    counter++; //append counter to each event key to make each key unique 
     });
 
     let date = btnSelected.value + "-"+ counter.toString();
@@ -228,6 +262,8 @@ function test(){
     alert("Event Created");
     document.getElementById("addEvent").reset();
 
+    //once event been created, render it on the display event section
+
     renderEvents();
     renderCalender();
     
@@ -237,7 +273,7 @@ function test(){
 
 
 
-
+//function for going to the previous month
 
 function prev() {
     currMonth--;
@@ -250,6 +286,8 @@ function prev() {
     
    
 }
+
+//function for going to the next month
 
 function next(){
     currMonth++;
